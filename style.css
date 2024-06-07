@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #8754ff;
+    --secondary-color: #d2daff;
+    --background-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --text-color: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.5); /* New */
+    --error-color: #ff4e4e;
+    --font-family: "Montserrat", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-family);
+}
+
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color);
+    z-index: 0;
+}
+
+.container {
+    width: 90vmin;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: var(--background-color);
+    backdrop-filter: blur(30px);
+    border: 2px solid var(--border-color);
+    z-index: 1;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid var(--primary-color);
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-bottom-color: var(--primary-color);
+}
+
+.search-box button {
+    padding: 10px;
+    width: 25%;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+.result {
+    margin-top: 20px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.result h3 {
+    font-size: 30px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.result .word {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.result button {
+    background-color: transparent;
+    color: #d6d6d6;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.result .details {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0 20px 0;
+    font-size: 14px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.word-meaning {
+    margin-top: 10px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.word-example {
+    margin-top: 20px;
+    font-style: italic;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 20px;
+    color: var(--text-color); /* Ensure text color is set */
+}
+
+.error {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--error-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .search-box input {
+        width: 65%;
+    }
+
+    .search-box button {
+        width: 30%;
+    }
+
+    .result h3 {
+        font-size: 24px;
+    }
+}
